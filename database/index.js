@@ -8,7 +8,7 @@ import { websiteModels } from '../models/websiteModels.js'
 import { pageModels } from '../models/pageModels.js'
 import { keyModel } from '../models/keyModels.js'
 
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect(config.DATABASE.MONGO.URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
