@@ -8,12 +8,14 @@ import app from '../app.js'
 import debugMessage from 'debug'
 import http from 'http'
 import { shutDown } from '../utilities/serverUtils/shutDown.js'
+import mongoose from 'mongoose'
 
 const debug = debugMessage('planetx-blockchain-dgt-backend:server')
 
 /**
  * Get port from environment and store in Express.
  */
+mongoose.set('strictQuery', false)
 
 const port = normalizePort(process.env.PORT || '3000')
 app.set('port', port)
