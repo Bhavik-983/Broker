@@ -8,6 +8,7 @@ import app from '../app.js'
 import debugMessage from 'debug'
 import http from 'http'
 import { shutDown } from '../utilities/serverUtils/shutDown.js'
+import config from '../config/index.js'
 import mongoose from 'mongoose'
 
 const debug = debugMessage('planetx-blockchain-dgt-backend:server')
@@ -88,6 +89,22 @@ function onListening () {
   const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port
   debug('Listening on ' + bind)
   console.log('SERVER LISTENING ON PORT ' + addr.port)
+  mongoose.connect(config.DATABASE.MONGO.URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  const db = mongoose.connection
+
+  db.on('connecting', () => {
+    console.log('MONGO-DB DATABASE CONNECTED')
+    // logger.info({ message: 'MongoDB Connecting' })
+  })
+
+  db.once('open', async () => {
+    console.log('MONGO-DB DATABASE CONNECTED')
+    // logger.info({ message: 'MongoDB connected' })
+    // await syncAllModel()
+  })
 }
 
 process.on('SIGTERM', () => {
