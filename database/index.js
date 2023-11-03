@@ -9,7 +9,7 @@ import { pageModels } from '../models/pageModels.js'
 import { keyModel } from '../models/keyModels.js'
 import { languageModels } from '../models/languageModels.js'
 
-mongoose.connect('mongodb://127.0.0.1:27017/LT', {
+mongoose.connect('mongodb://localhost:27017/LT', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
