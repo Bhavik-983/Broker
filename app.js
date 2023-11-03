@@ -12,7 +12,9 @@ import routes from './routes/index.js'
 import rateLimiter from './middleware/rateLimiter.js'
 
 import './database/index.js'
+
 const app = express()
+
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 

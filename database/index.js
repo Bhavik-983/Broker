@@ -7,15 +7,13 @@ import { shutDown } from '../utilities/serverUtils/shutDown.js'
 import { websiteModels } from '../models/websiteModels.js'
 import { pageModels } from '../models/pageModels.js'
 import { keyModel } from '../models/keyModels.js'
-import { languageModels } from '../models/languageModels.js'
 
-mongoose.set('strictQuery', false)
 mongoose.connect(config.DATABASE.MONGO.URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
 
-mongoose.set('debug', true)
+// mongoose.set('debug', true)
 
 const db = mongoose.connection
 
@@ -23,10 +21,9 @@ db.on('connecting', () => {
   logger.info({ message: 'MongoDB Connecting' })
 })
 
-db.once('open', async () => {
+db.once('open', () => {
   console.log('MONGO-DB DATABASE CONNECTED')
   logger.info({ message: 'MongoDB connected' })
-  await syncAllModel()
 })
 
 db.on('disconnecting', () => {
