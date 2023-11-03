@@ -9,6 +9,7 @@ import { pageModels } from '../models/pageModels.js'
 import { keyModel } from '../models/keyModels.js'
 import { languageModels } from '../models/languageModels.js'
 
+mongoose.set('strictQuery', false)
 mongoose.connect(config.DATABASE.MONGO.URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
