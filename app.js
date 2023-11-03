@@ -11,7 +11,7 @@ import logger from './utilities/logger.js'
 import routes from './routes/index.js'
 import rateLimiter from './middleware/rateLimiter.js'
 
-import './database/index.js'
+// import './database/index.js'
 
 const app = express()
 
