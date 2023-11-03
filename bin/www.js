@@ -15,7 +15,6 @@ const debug = debugMessage('planetx-blockchain-dgt-backend:server')
 /**
  * Get port from environment and store in Express.
  */
-mongoose.set('strictQuery', false)
 
 const port = normalizePort(process.env.PORT || '3000')
 app.set('port', port)
