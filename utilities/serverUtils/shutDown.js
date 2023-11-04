@@ -1,4 +1,4 @@
-// import database from "../../database/index.js";
+import database from '../../database/index.js'
 import server from '../../bin/www.js'
 import sleep from '../sleep.js'
 
@@ -14,9 +14,9 @@ export async function shutDown (onError = false) {
   server.close(async () => {
     console.log('Closing Database Connection.')
     // boolean means [force], see in mongoose doc
-    // database.close(false, () => {
-    //   console.log('Shutdown Successfull!')
-    //   process.exit(0)
-    // })
+    database.close(false, () => {
+      console.log('Shutdown Successfull!')
+      process.exit(0)
+    })
   })
 }

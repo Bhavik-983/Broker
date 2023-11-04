@@ -1,7 +1,7 @@
-// import database from '../../database/index.js'
+import database from '../../database/index.js'
 
 function checkDatabaseConnection () {
-  // return database.readyState === 1
+  return database.readyState === 1
 }
 
 export async function healthCheck () {

@@ -8,6 +8,7 @@ import jwt from 'jsonwebtoken'
 // use for create website
 export const createWebsite = async (req, res) => {
   try {
+    console.log('hyhyhyhyhyh')
     const data = req.body
     const websiteData = await websiteModels.findOne({ name: data.name })
 
